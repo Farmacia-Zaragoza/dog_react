@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import TopPhotoRow from './components/topPhotoRow/TopPhotoRow';
+import LanguageSlider from './components/languageSlider/LanguageSlider';
+import PhotoGallery from './components/photoGallery/PhotoGallery';
+import BoneMenu from "./components/boneMenu/BoneMenu";
+import BottomPanel from './components/bottomPanel/BottomPanel';
+import BottomPhotoRow from './components/bottomPhotoRow/BottomPhotoRow';
+
+import './app.scss'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <TopPhotoRow />
+        <LanguageSlider />
+        <PhotoGallery />
+        <BoneMenu />
+        <BottomPanel />
+        <BottomPhotoRow />
       </div>
     );
   }

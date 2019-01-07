@@ -25,6 +25,16 @@
 }
 
 .bottom-panel {
-	 grid-area: bpl;
-	 background-color: gray;
+	 position: absolute;
+	 width: 100%;
+	 bottom: 0;
+	 height: 50px;
+	 background-color: transparent;
+	 .bottom-panel__content {
+		 height: 50px;
+		 background-color: grey;
+		 position: absolute;
+		 width: 100%;
+		 bottom: 0;
+	 }
 }

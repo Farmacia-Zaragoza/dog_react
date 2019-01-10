@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+#/build adding production to git to have git-pages for testing
 
 # misc
 .DS_Store

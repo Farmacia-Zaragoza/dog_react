@@ -18,7 +18,7 @@ class topPhotoRow extends Component {
     return (
       <div className="top-photo-row">
       {
-        this.state.photos.slice(0, this.props.photosCount).map( (photo, i) => {
+        this.props.photos.map( (photo, i) => {
           return (
             <div className="top-photo-row__img-container" key={i}>
               <img className="top-photo-row__img-container__image"

@@ -22,8 +22,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Test Page
+
+After application was built copy all files from `build` folder to `docs` folder and add `/dog_react/` before every src link in `index.html` to see actual results on [https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/](GitHub Pages)
 
 ### `https://farmacia-zaragoza.github.io/dog_react/`
 
-You can track progress of development on this page.
+The actual state of commited project is shown on this [https://farmacia-zaragoza.github.io/dog_react/](page).

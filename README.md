@@ -29,3 +29,16 @@ After application was built copy all files from `build` folder to `docs` folder 
 ### `https://farmacia-zaragoza.github.io/dog_react/`
 
 The actual state of commited project is shown on this [page](https://farmacia-zaragoza.github.io/dog_react/).
+
+## spec.json
+
+Inside `public ` folder (`docs` folder for built app) presented spec.json file. It contains list of configurations that are available in app. 
+List of configurations so far:
+
+`title` - title of the page
+`images` - array of links to all images that are used in rows and carousel
+`photoRowMobile` - number of images per row in mobile view
+`photoRowTabletSmall` - number of images per row in landscape tablet view
+`photoRowTable` - number of images per row in tablet view
+`photoRowDesktop` - number of images per row in desktop view
+`photoRowDektopBig` - number of images per row in FULL HD and upper view

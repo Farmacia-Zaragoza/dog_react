@@ -27,7 +27,7 @@
 	display: grid;
 	width: 100vw;
 	height: 100vh;
-	grid-template-rows: 20% 10% 55% 15%;
+	grid-template-rows: 10% 10% 65% 15%;
 	grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
 	grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 											 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
@@ -36,7 +36,7 @@
 	color: black;
 	@include for-phone-only {
 		color: red;
-		grid-template-rows: 20% 20% 30% 10% 20%;
+		grid-template-rows: 10% 20% 50% 10% 10%;
 		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'

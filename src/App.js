@@ -68,7 +68,7 @@ class App extends Component {
         <SettingsBlock />
         <TopPhotoRow photos={this.state.choosenImgs} />
         <LanguageSlider />
-        <PhotoGallery />
+        <PhotoGallery photos={this.state.images}/>
         <BoneMenu />
         <BottomPanel />
         <BottomPhotoRow />

@@ -27,4 +27,34 @@
 .photo-gallery {
 	grid-area: pgy;
 	background-color: dodgerblue;
+	display: grid;
+	grid-template-columns: 800px;
+	grid-template-rows: 600px auto;
+	align-content: start;
+	justify-content: center;
+}
+
+.photo-gallery__big-img {
+	width: 100%;
+}
+
+.photo-gallery__controls {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: 200px;
+	align-content: start;
+	justify-content: start;
+	text-align: center;
+}
+
+.photo-gallery__controls__photo {
+	width: 100%;
+}
+
+.photo-gallery__controls__prev {
+	cursor: pointer;
+}
+
+.photo-gallery__controls__next {
+	cursor: pointer;
 }

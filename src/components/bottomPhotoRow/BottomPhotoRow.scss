@@ -30,4 +30,10 @@
 	@include for-phone-only {
 		display: block;
 	}
+	@include for-tablet-portrait-up {
+		display: block;
+	}
+	@include for-tablet-landscape-up {
+		display: none;
+	}
 }

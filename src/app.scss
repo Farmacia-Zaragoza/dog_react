@@ -26,21 +26,42 @@
 .App {
 	display: grid;
 	width: 100vw;
-	height: 100vh;
+	//height: 100vh;
 	grid-template-rows: 10% 10% 65% 15%;
 	grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
 	grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 											 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 											 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
 											 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
-	color: black;
 	@include for-phone-only {
-		color: red;
 		grid-template-rows: 10% 20% 50% 10% 10%;
 		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
 												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu'
 												 'bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr';
+	}
+	@include for-tablet-portrait-up {
+		grid-template-rows: 110px 200px 370px 110px 110px;
+		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
+												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
+												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
+												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu'
+												 'bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr';
+	}
+	@include for-tablet-landscape-up {
+		grid-template-rows: 110px 200px 370px 110px;
+		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
+												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
+												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
+												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
+	}
+	@include for-desktop-up {
+		height: 100vh;
+		grid-template-rows: 15% 10% 60% 15%;
+		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
+												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
+												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
+												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
 	}
 }

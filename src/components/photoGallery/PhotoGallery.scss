@@ -28,10 +28,18 @@
 	grid-area: pgy;
 	background-color: dodgerblue;
 	display: grid;
-	grid-template-columns: 800px;
-	grid-template-rows: 600px auto;
+	grid-template-columns: 400px;
+	grid-template-rows: 320px 100px;
 	align-content: start;
 	justify-content: center;
+	@include for-desktop-up {
+		grid-template-columns: 700px;
+		grid-template-rows: 550px 200px;
+	}
+	@include for-big-desktop-up {
+		grid-template-columns: 700px;
+		grid-template-rows: 550px 200px;
+	}
 }
 
 .photo-gallery__big-img {
@@ -40,8 +48,13 @@
 
 .photo-gallery__controls {
 	display: grid;
+	@include for-tablet-landscape-up {
+		grid-template-rows: 30px;
+	}
+	@include for-desktop-up {
+		grid-template-rows: 50px;
+	}
 	grid-template-columns: repeat(10, 1fr);
-	grid-template-rows: 200px;
 	align-content: start;
 	justify-content: start;
 	text-align: center;
@@ -52,9 +65,29 @@
 }
 
 .photo-gallery__controls__prev {
+	border: 2px solid black;
 	cursor: pointer;
+	border-radius: 50px;
+	line-height: 30px;
+	@include for-desktop-up {
+		line-height: 50px;
+	}
+	background-color: yellow;
+	:hover {
+		background-color: blue;
+	}
 }
 
 .photo-gallery__controls__next {
+	border: 2px solid black;
 	cursor: pointer;
+	border-radius: 50px;
+	line-height: 30px;
+	@include for-desktop-up {
+		line-height: 50px;
+	}
+	background-color: yellow;
+	:hover {
+		background-color: blue;
+	}
 }

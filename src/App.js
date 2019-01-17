@@ -16,7 +16,7 @@ class App extends Component {
   state = {}
 
   componentDidMount() {
-    axios.get('./spec.json').then(response => {
+    axios.get(this.props.data).then(response => {
       console.log(response)
       this.setState({
         images: response.data.images,

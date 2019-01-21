@@ -25,16 +25,14 @@
 }
 .App {
 	display: grid;
-	width: 100vw;
-	//height: 100vh;
-	grid-template-rows: 10% 10% 65% 15%;
 	grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
-	grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
-											 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
-											 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
-											 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
+	//grid-template-rows: 10% 10% 65% 15%;
+	//grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
+	//										 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
+	//										 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
+	//										 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu'; 
 	@include for-phone-only {
-		grid-template-rows: 10% 20% 50% 10% 10%;
+		grid-template-rows: 100px 150px 320px 100px 100px;
 		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
@@ -42,7 +40,7 @@
 												 'bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr';
 	}
 	@include for-tablet-portrait-up {
-		grid-template-rows: 110px 200px 370px 110px 110px;
+		grid-template-rows: 110px 150px 320px 110px 110px;
 		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
@@ -50,15 +48,21 @@
 												 'bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr bpr';
 	}
 	@include for-tablet-landscape-up {
-		grid-template-rows: 110px 200px 370px 110px;
+		grid-template-rows: 110px 200px 350px 110px;
 		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
 												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
 	}
 	@include for-desktop-up {
-		height: 100vh;
-		grid-template-rows: 15% 10% 60% 15%;
+		grid-template-rows: 120px 80px 330px 80px;
+		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
+												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
+												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'
+												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
+	}
+	@include for-big-desktop-up {
+		grid-template-rows: 165px 115px 640px 160px;
 		grid-template-areas: 'tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr tpr'
 												 'lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr lsr'
 												 'pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy pgy'

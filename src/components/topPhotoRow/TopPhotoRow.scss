@@ -27,31 +27,36 @@
 .top-photo-row {
 	grid-area: tpr;
 	background-color: orange;
-	width: 100%;
+	//width: 100%;
 	display: grid;
 	align-content: center;
+	padding: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 20px;
 	@include for-phone-only {
-		grid-template-columns: auto auto auto;
+		grid-template-columns: auto auto auto auto;
 		grid-gap: 10px;
+		grid-template-rows: 80px;
 	}
 	@include for-tablet-portrait-up {
 		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 100px;
 	}
 	@include for-tablet-landscape-up {
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: auto auto auto auto auto;
+		grid-template-rows: 90px;
 	}
 	@include for-desktop-up {
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: auto auto auto auto auto auto auto;
+		grid-template-rows: 100px;
 	}
 	@include for-big-desktop-up {
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: auto auto auto auto auto auto auto auto;
+		grid-template-rows: 150px;
 	}
 }
-.top-photo-row__img-container {
-	display:flex;
-	justify-content:center;
-	align-items:center;
-}
 .top-photo-row__img-container__image {
-	width: 120px;
+	margin: auto;
+	display: block;
+	max-height: 100%;
 }

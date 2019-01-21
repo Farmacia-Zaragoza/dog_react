@@ -40,7 +40,9 @@ class PhotoGallery extends Component {
 
     return (
       <div className="photo-gallery">
-        <img className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
+        <div>
+          <img className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
+        </div>
         <div className="photo-gallery__controls">
           <div className="photo-gallery__controls__prev" onClick={this.prevPage}> {`<`} </div>
           {!photosToShow? '' : photosToShow.map((photo, index) => {

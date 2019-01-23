@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './PhotoGallery.scss';
+import frame from '../../imgs/gold_square_0640_2017.png'
 
 class PhotoGallery extends Component {
   state = {
@@ -21,7 +22,7 @@ class PhotoGallery extends Component {
   }
   nextPage = (e) => {
     this.setState({
-      row: this.state.row + 1
+      row: this.state.row < parseInt(this.props.photos.length / this.state.photosPerRow) ? this.state.row + 1 : this.state.row
     })
   }
 
@@ -40,8 +41,8 @@ class PhotoGallery extends Component {
 
     return (
       <div className="photo-gallery">
-        <div>
-          <img className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
+        <div className="big-img__container">
+            <img className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
         </div>
         <div className="photo-gallery__controls">
           <div className="photo-gallery__controls__prev" onClick={this.prevPage}> {`<`} </div>

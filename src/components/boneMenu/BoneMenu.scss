@@ -25,6 +25,20 @@
 }
 
 .bone-menu {
+	padding: 0 20px;
 	grid-area: bmu;
 	background-color: rebeccapurple;
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	grid-column-gap: 50px;
+}
+
+.bone-menu__item {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	color: black;
+	display:flex;
+	justify-content:center;
+	align-items:center;
 }

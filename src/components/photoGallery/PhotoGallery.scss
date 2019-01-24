@@ -33,13 +33,13 @@
 	grid-row-gap: 20px;
 	align-content: start;
 	justify-content: center;
-	@include for-desktop-up {
-		grid-template-columns: 400px;
-		grid-template-rows: 250px 100px;
+	@include for-tablet-portrait-up {
+		grid-template-columns: 500px;
+		grid-template-rows: 300px 50px;
 	}
 	@include for-tablet-landscape-up {
-		grid-template-columns: 400px;
-		grid-template-rows: 280px 50px;
+		grid-template-columns: 500px;
+		grid-template-rows: 380px 50px;
 	}
 	@include for-desktop-up {
 		grid-template-columns: 700px;
@@ -52,11 +52,11 @@
 }
 
 .photo-gallery__big-img {
-	max-width: 100%;
-  max-height: 100%;
+	max-width: 98%;
+	max-height: 91%;
 	display: block;
 	margin: auto;
-	border: 15px solid gold;
+	padding: 2%;
 }
 
 .photo-gallery__controls {
@@ -82,31 +82,46 @@
 	cursor: pointer;
 	border-radius: 50px;
 	margin: auto;
-	width: 50px;
+	width: 30px;
 	line-height: 30px;
 	@include for-desktop-up {
 		line-height: 50px;
+		width: 50px;
+	}
+	@include for-big-desktop-up {
+		line-height: 80px;
+		width: 80px;
 	}
 	background-color: yellow;
 	:hover {
 		background-color: blue;
 	}
 }
-.big-img__container {
-		margin-bottom: 25px;
-	}
+
 .photo-gallery__controls__next {
 	border: 2px solid black;
 	cursor: pointer;
 	border-radius: 50px;
 	margin: auto;
-	width: 50px;
+	width: 30px;
 	line-height: 30px;
 	@include for-desktop-up {
 		line-height: 50px;
+		width: 50px;
+	}
+	@include for-big-desktop-up {
+		line-height: 80px;
+		width: 80px;
 	}
 	background-color: yellow;
 	:hover {
 		background-color: blue;
 	}
+}
+
+.big-img__container {
+	margin-bottom: 25px;
+	background-size: contain;
+  background-repeat: no-repeat;
+	background-position: center;
 }

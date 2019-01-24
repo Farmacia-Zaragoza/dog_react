@@ -41,7 +41,7 @@ class PhotoGallery extends Component {
 
     return (
       <div className="photo-gallery">
-        <div className="big-img__container">
+        <div className="big-img__container" style={{backgroundImage: `url(${frame})`}}>
             <img className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
         </div>
         <div className="photo-gallery__controls">

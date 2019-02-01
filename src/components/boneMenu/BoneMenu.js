@@ -8,18 +8,22 @@ class BoneMenu extends Component {
         linkNumber: 6
     }
 
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     showGoldBone = (e) => {
-        e.target.style.backgroundImage = `url(${boneGold})`
+        e.target.style.backgroundImage = `url(${this.props.orangeBone.replace('photos', 'r_img')})`
     }
 
     showWhiteBone = (e) => {
-        e.target.style.backgroundImage = `url(${boneWhite})`
+        e.target.style.backgroundImage = `url(${this.props.whiteBone.replace('photos', 'r_img')})`
     }
 
     render() {
         let arr = [];
         for (var i = 0; i<this.state.linkNumber; i++) {
-            arr.push(boneWhite);
+            arr.push(this.props.whiteBone.replace('photos', 'r_img'));
         }
         return (
             <div className="bone-menu">

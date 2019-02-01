@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TopPhotoRow.scss';
+import  frame from '../../imgs/small-border.png';
 
 class topPhotoRow extends Component {
   render() {
@@ -7,7 +8,7 @@ class topPhotoRow extends Component {
       <div className="top-photo-row">
       { !this.props.photos? '' : this.props.photos.map( (photo, i) => {
             return (
-              <div className="top-photo-row__img-container" key={i}>
+              <div style={{backgroundImage: `url(${frame})`}} className="top-photo-row__img-container" key={i}>
                 <img className="top-photo-row__img-container__image"
                   src={photo}
                   alt="dog">

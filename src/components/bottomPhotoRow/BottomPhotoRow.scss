@@ -23,17 +23,38 @@
 		@content
 	}
 }
+
 .bottom-photo-row {
 	grid-area: bpr;
-	background-color: pink;
-	display: none;
+	//width: 100%;
+	display: grid;
+	align-content: center;
+	padding: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 20px;
 	@include for-phone-only {
-		display: block;
+		grid-template-columns: auto auto auto auto;
+		grid-gap: 10px;
+		grid-template-rows: 80px;
 	}
 	@include for-tablet-portrait-up {
-		display: block;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 100px;
 	}
 	@include for-tablet-landscape-up {
 		display: none;
 	}
+}
+.top-photo-row__img-container__image {
+	max-width: 98%;
+	max-height: 91%;
+	display: block;
+	margin: auto;
+	padding: 2.5%;
+}
+
+.top-photo-row__img-container {
+	background-size: contain;
+  background-repeat: no-repeat;
+	background-position: center;
 }

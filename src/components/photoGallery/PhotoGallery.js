@@ -9,11 +9,22 @@ class PhotoGallery extends Component {
     row: 1
   }
 
-  componentDidReceiveProps() {
+
+    componentDidMount() {
+      let photos = [];
+      for (let i = 0; i<this.props.photos.length; i++) {
+        let photo = this.props.photos[i].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
+        photos.push(photo)
+      }
+      this.setState({
+        photos: photos
+      })
+    }
+  /*componentDidReceiveProps() {
     this.setState({
       bigPhoto: this.props.photos ? this.props.photos[0] : ''
     })
-  }
+  }*/
 
   prevPage = (e) => {
     this.setState({
@@ -22,7 +33,7 @@ class PhotoGallery extends Component {
   }
   nextPage = (e) => {
     this.setState({
-      row: this.state.row < parseInt(this.props.photos.length / this.state.photosPerRow) ? this.state.row + 1 : this.state.row
+      row: this.state.row < parseInt(this.state.photos.length / this.state.photosPerRow) ? this.state.row + 1 : this.state.row
     })
   }
 
@@ -33,11 +44,11 @@ class PhotoGallery extends Component {
   }
 
   render() {
-    const photos = this.props.photos ? this.props.photos : [];
+    const photos = this.state.photos ? this.state.photos : [];
     const lastPhoto = this.state.row * this.state.photosPerRow;
     const firstPhoto = lastPhoto - this.state.photosPerRow;
     const photosToShow = photos ? photos.slice(firstPhoto, lastPhoto) : []
-    const bigPhotoPre = this.props.photos ? this.props.photos[0] : '';
+    const bigPhotoPre = this.state.photos ? this.state.photos[0] : '';
 
     return (
       <div className="photo-gallery">

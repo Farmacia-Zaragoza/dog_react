@@ -26,7 +26,6 @@
 
 .photo-gallery {
 	grid-area: pgy;
-	background-color: dodgerblue;
 	display: grid;
 	grid-template-columns: 400px;
 	grid-template-rows: 250px 100px;
@@ -56,7 +55,19 @@
 	max-height: 91%;
 	display: block;
 	margin: auto;
-	padding: 2%;
+	padding: 2.5%;
+	@include for-tablet-portrait-up {
+		
+	}
+	@include for-tablet-landscape-up {
+		padding: 3%;
+	}
+	@include for-desktop-up {
+		padding: 1.5%;
+	}
+	@include for-big-desktop-up {
+		padding: 2%;
+	}
 }
 
 .photo-gallery__controls {

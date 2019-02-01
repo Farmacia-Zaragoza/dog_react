@@ -10,7 +10,10 @@
 
 # production
 /build
-
+/public/photos
+/public/r_img
+/r_img
+/build_r
 # misc
 .DS_Store
 .env.local

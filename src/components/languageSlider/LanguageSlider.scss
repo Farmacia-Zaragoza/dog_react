@@ -26,4 +26,55 @@
 
 .language-slider {
 	grid-area: lsr;
+
+}
+
+.language-slider {
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: auto 300px auto;
+	@include for-tablet-portrait-up {
+		grid-template-columns: auto 400px auto;
+	}
+	@include for-tablet-landscape-up {
+		grid-template-columns: auto 700px auto;
+	}
+	@include for-desktop-up {
+		grid-template-columns: auto 1000px auto;
+	}	
+}
+
+.slider-container {
+	width: 1430px;
+	margin: auto;
+	white-space: nowrap;
+	position: relative;
+}
+
+.language-container {
+	float: left;
+	margin-right: 10px;
+	img {
+		width: 100px;
+		height: 70px;
+	}
+}
+
+.slider-controls {
+	text-align: center;
+	background-position: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.arrow-left {
+	float: right;
+}
+
+.arrow-right {
+	float: left;
+}
+
+.row-container {
+	overflow: hidden;
 }

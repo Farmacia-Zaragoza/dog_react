@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import './BoneMenu.scss';
-import boneWhite from '../../imgs/white_dog_bone_2017.png'
-import boneGold from '../../imgs/gold_dog_bone_2017.png'
 
 class BoneMenu extends Component {
     state = {
         linkNumber: 6
     }
 
-    componentDidMount() {
-        console.log(this.props)
-    }
+    componentDidMount() {}
 
     showGoldBone = (e) => {
-        e.target.style.backgroundImage = `url(${this.props.orangeBone.replace('photos', 'r_img')})`
+        e.target.style.backgroundImage = `url(http://dog.vbrqx.com/${this.props.orangeBone.replace('photos', 'r_img')})`
     }
 
     showWhiteBone = (e) => {
-        e.target.style.backgroundImage = `url(${this.props.whiteBone.replace('photos', 'r_img')})`
+        e.target.style.backgroundImage = `url(http://dog.vbrqx.com/${this.props.whiteBone.replace('photos', 'r_img')})`
     }
 
     render() {

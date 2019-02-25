@@ -25,16 +25,63 @@
 }
 
 .bottom-panel {
-	 position: absolute;
-	 width: 100%;
-	 bottom: 0;
-	 height: 50px;
-	 background-color: transparent;
-	 .bottom-panel__content {
-		 height: 50px;
-		 background-color: grey;
-		 position: absolute;
-		 width: 100%;
-		 bottom: 0;
-	 }
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 50px;
+	overflow: hidden;
+	background-color: transparent;
+	.bottom-panel__content {
+		border-top: 2px solid black;
+		height: 48px;
+		position: absolute;
+		width: 4000px;
+		bottom: 0;
+		background-color: wheat;
+	}
+}
+
+.footer-item {
+	float: left;
+	width: 300px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+}
+
+.footer-item:hover {
+	font-weight: 600;
+}
+
+.footer-arrow {
+	position: absolute;
+	z-index: 1;
+	height: 50px;
+	line-height: 50px;
+	background-color: wheat;
+	width: 50px;
+	text-align: center;
+	font-size: 50px;
+	cursor: pointer;
+	border-top: 2px solid black;
+	border-radius: 50px;
+}
+
+.footer-arrow:hover {
+	font-weight: 600;
+	background-color: white;
+}
+
+.footer-right {
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-left: 2px solid black;
+}
+
+.footer-left {
+	left: 0;
+	top: 0;
+	bottom: 0;
+	border-right: 2px solid black;
 }

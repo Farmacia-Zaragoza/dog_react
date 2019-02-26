@@ -33,9 +33,9 @@ class BottomPanel extends Component {
                 <div className="bottom-panel__content"
                      style={{display: this.state.showContent ? 'block' : 'none'}}>
                      <div style={{left: this.state.left+'px', position: 'absolute'}}>
-                        {this.props.footer.map(item => {
+                        {this.props.footer.map((item, i) => {
                             return (
-                                <div className="footer-item">{item.item}</div>
+                                <div className="footer-item" key={i}>{item.item}</div>
                             )
                         })}
                     </div>

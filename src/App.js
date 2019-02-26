@@ -6,7 +6,7 @@ import LanguageSlider from './components/languageSlider/LanguageSlider';
 import PhotoGallery from './components/photoGallery/PhotoGallery';
 import BoneMenu from "./components/boneMenu/BoneMenu";
 import BottomPanel from './components/bottomPanel/BottomPanel';
-import BottomPhotoRow from './components/bottomPhotoRow/BottomPhotoRow';
+/* import BottomPhotoRow from './components/bottomPhotoRow/BottomPhotoRow'; */
 import SettingsBlock from './components/settingsWizard/SettingsBlock';
 
 import './app.scss'
@@ -21,10 +21,8 @@ class App extends Component {
  }
 
   componentDidMount() {
-    console.log(this.props)
     axios.get(this.props['data-common'])
       .then(response => {
-        console.log(response)
         this.setState({
           symbols: response.data.Symbols,
           images: response.data.topSlider,
@@ -40,12 +38,12 @@ class App extends Component {
     } 
     return (
       <div className="App">
-        <SettingsBlock />
-        <TopPhotoRow data={this.props['data-common']}/>
-        <LanguageSlider arrowRight={this.state.symbols[5].image} arrowLeft={this.state.symbols[6].image} languages={this.state.languages}/>
-        <PhotoGallery data={this.props['data-spec']} arrowDown={this.state.symbols[1].image} arrowUp={this.state.symbols[0].image}/>
-        <BoneMenu orangeBone={this.state.symbols[11].image} whiteBone={this.state.symbols[14].image}/>
-        <BottomPanel footer={this.state.footer}/>
+        <SettingsBlock url={this.props.url}/>
+        <TopPhotoRow url={this.props.url} data={this.props['data-common']}/>
+        <LanguageSlider url={this.props.url} arrowRight={this.state.symbols[5].image} arrowLeft={this.state.symbols[6].image} languages={this.state.languages}/>
+        <PhotoGallery url={this.props.url} data={this.props['data-spec']} arrowDown={this.state.symbols[1].image} arrowUp={this.state.symbols[0].image}/>
+        <BoneMenu url={this.props.url} orangeBone={this.state.symbols[11].image} whiteBone={this.state.symbols[14].image}/>
+        <BottomPanel url={this.props.url} footer={this.state.footer}/>
         { /*<BottomPhotoRow data={this.props['data-common']}/>*/}
       </div>
     );

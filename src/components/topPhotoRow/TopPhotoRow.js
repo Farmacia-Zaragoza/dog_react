@@ -21,7 +21,6 @@ class topPhotoRow extends Component {
           photoRowDesktop: +response.data.photoRow[3].numColums,
           photoRowDektopBig: +response.data.photoRow[4].numColums
         })
-        console.log(this.state.images)
         this.getPhotosCount();
       })
       window.addEventListener("resize", this.getPhotosCount);
@@ -31,7 +30,7 @@ class topPhotoRow extends Component {
     let imgs = [];
     for ( let i = 0; i < this.state.photosCount; i++) {
       let rand = Math.floor(Math.random() * this.state.images.length);
-      imgs.push('http://dog.vbrqx.com/'+this.state.images[rand].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366"));
+      imgs.push(this.props.url+this.state.images[rand].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366"));
     }
     this.setState({
       choosenImgs: imgs
@@ -73,7 +72,7 @@ class topPhotoRow extends Component {
       { !this.state.choosenImgs ? '' : this.state.choosenImgs.map( (photo, i) => {
             return (
               <div onMouseOver={() => this.togglePopUp(i)} style={{backgroundImage: `url(${frame})`}} className="top-photo-row__img-container popup" key={i}>
-                <a href={'http://http://dog.vbrqx.com/'+this.state.images[i]['common-link']}>
+                <a href={this.props.url+this.state.images[i]['common-link']}>
                     <img className="top-photo-row__img-container__image"
                       src={photo}
                       alt="dog">

@@ -14,11 +14,11 @@ class PhotoGallery extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://dog.vbrqx.com/dog/fnode/spec_any_jsons_generated/front_en_json_file.json')
+    axios.get(this.props.data)
     .then(response => {
       let photos = [];
       for (let i = 0; i<response.data.images.length; i++) {
-        let photo = 'http://dog.vbrqx.com/'+response.data.images[i].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
+        let photo = this.props.url+response.data.images[i].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
         photos.push(photo)
       }
       this.setState({
@@ -102,8 +102,8 @@ class PhotoGallery extends Component {
                   </div>
                 </div>
                 <div className="cover-text--down" onMouseOver={this.moveTextDown} onMouseLeave={this.stopMovement}>
-                <img className="arrowInner arrowDown arrowLeft"  src={this.props.arrowUp} alt="down"/>
-                  <img className="arrowInner arrowDown arrowRight" src={this.props.arrowUp} alt="down"/>
+                <img className="arrowInner arrowDown arrowLeft"  src={this.props.url+this.props.arrowUp} alt="down"/>
+                  <img className="arrowInner arrowDown arrowRight" src={this.props.url+this.props.arrowUp} alt="down"/>
                 </div>
               </div>
             </div>

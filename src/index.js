@@ -9,5 +9,6 @@ ReactDOM.render(<App
                       data-common={el.getAttribute('data-common')}
                       data-spec={el.getAttribute('data-spec')}
                       data-lang-common={el.getAttribute('data-lang-common')}
-                      data-lang-spec={el.getAttribute('data-lang-spec')}/>
+                      data-lang-spec={el.getAttribute('data-lang-spec')}
+                      url={el.getAttribute('data-common').slice(0,21)}/>
 , document.getElementById('root'));

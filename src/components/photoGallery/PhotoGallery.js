@@ -85,15 +85,15 @@ class PhotoGallery extends Component {
     return (
       <div className="photo-gallery">
         <div className="big-img__container" style={{backgroundImage: `url(${frame})`}}>
-        <div className="innerSettings">*</div>
             <div className="big-img__cover cover" style={{display: displayCover}} onMouseLeave={this.hideCover}>
               <div className="cover-container">
+              <div className="innerSettings">*</div>
                 <div className="cover-text--up" onMouseOver={this.moveTextUp} onMouseLeave={this.stopMovement}>
                   <img className="arrowInner arrowUp arrowLeft"  src={this.props.arrowUp} alt="up"/>
                   <img className="arrowInner arrowUp arrowRight" src={this.props.arrowUp} alt="up"/>
                 </div>
                 <div className="cover-text">
-                  <div className="inner-text" style={{top: this.state.textPosition+'px'}}>
+                  <div className="inner-text" style={{top: this.state.textPosition+'px', fontSize: this.props.textSize+'px'}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

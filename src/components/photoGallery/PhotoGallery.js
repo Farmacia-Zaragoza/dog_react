@@ -3,6 +3,8 @@ import './PhotoGallery.scss';
 import frame from '../../imgs/gold_square_0640_2017.png';
 import axios from 'axios';
 
+import { FacebookProvider, Page} from 'react-facebook';
+
 class PhotoGallery extends Component {
   state = {
     bigPhoto: '',
@@ -10,7 +12,9 @@ class PhotoGallery extends Component {
     row: 1,
     showCover: false,
     intervalId : '',
-    textPosition: 0
+    textPosition: 0,
+    displaySettingsBar: false,
+    displayFacebook: false
   }
 
   componentDidMount() {
@@ -50,7 +54,8 @@ class PhotoGallery extends Component {
   }
   hideCover = (e) => {
     this.setState({
-      showCover: false
+      showCover: false,
+      displayFacebook: false
     })
   }
   timerUp = (e) => {
@@ -74,20 +79,49 @@ class PhotoGallery extends Component {
   stopMovement = (e) => {
     clearInterval(this.state.intervalId);
   }
+  showSettingsBar = (e) => {
+    this.setState({
+      displaySettingsBar: true
+    })
+  }
+  hideSettingsBar = (e) => {
+    this.setState({
+      displaySettingsBar: false
+    })
+  }
+  showFacebook = (e) => {
+    this.setState({
+      displayFacebook: true
+    })
+  }
   render() {
     const photos = this.state.photos ? this.state.photos : [];
     const lastPhoto = this.state.row * this.state.photosPerRow;
     const firstPhoto = lastPhoto - this.state.photosPerRow;
     const photosToShow = photos ? photos.slice(firstPhoto, lastPhoto) : []
     const bigPhotoPre = this.state.photos ? this.state.photos[0] : '';
-    const displayCover = this.state.showCover ? 'block' : 'none'
+    const displayCover = this.state.showCover ? 'block' : 'none';
+    const displaySettingsBar = this.state.displaySettingsBar ? 'block' : 'none';
+    const displayFacebook = this.state.displayFacebook ? 'block': 'none';
 
     return (
       <div className="photo-gallery">
         <div className="big-img__container" style={{backgroundImage: `url(${frame})`}}>
             <div className="big-img__cover cover" style={{display: displayCover}} onMouseLeave={this.hideCover}>
               <div className="cover-container">
-              <div className="innerSettings">*</div>
+                <div className="innerSettings" onMouseOver={this.showSettingsBar}><i className="fas fa-cog"></i></div>
+                <div className="innerSettings__bar" onMouseLeave={this.hideSettingsBar} style={{display: displaySettingsBar}}>
+                  <ul>
+                    <li onClick={this.showFacebook}><i className="fab fa-facebook-square"></i></li>
+                    <li><i className="fab fa-twitter-square"></i></li>
+                    <li><i className="fab fa-linkedin"></i></li>
+                  </ul>
+                </div>
+                <div className="facebookContent" style={{display: displayFacebook}}>
+                <FacebookProvider appId="135660753806286">
+                    <Page href="https://www.facebook.com/transporteslucasrivera/" tabs="timeline" />
+                </FacebookProvider>    
+                </div>
                 <div className="cover-text--up" onMouseOver={this.moveTextUp} onMouseLeave={this.stopMovement}>
                   <img className="arrowInner arrowUp arrowLeft"  src={this.props.arrowUp} alt="up"/>
                   <img className="arrowInner arrowUp arrowRight" src={this.props.arrowUp} alt="up"/>

@@ -4,6 +4,8 @@ import frame from '../../imgs/gold_square_0640_2017.png';
 import axios from 'axios';
 
 import { FacebookProvider, Page} from 'react-facebook';
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+
 
 class PhotoGallery extends Component {
   state = {
@@ -14,7 +16,8 @@ class PhotoGallery extends Component {
     intervalId : '',
     textPosition: 0,
     displaySettingsBar: false,
-    displayFacebook: false
+    displayFacebook: false,
+    displayTwitter: false
   }
 
   componentDidMount() {
@@ -94,6 +97,16 @@ class PhotoGallery extends Component {
       displayFacebook: true
     })
   }
+  showTwitter = (e) => {
+    this.setState({
+      displayTwitter: true
+    })
+  }
+  hideTwitter = (e) => {
+    this.setState({
+      displayTwitter: false
+    })
+  }
   render() {
     const photos = this.state.photos ? this.state.photos : [];
     const lastPhoto = this.state.row * this.state.photosPerRow;
@@ -103,6 +116,7 @@ class PhotoGallery extends Component {
     const displayCover = this.state.showCover ? 'block' : 'none';
     const displaySettingsBar = this.state.displaySettingsBar ? 'block' : 'none';
     const displayFacebook = this.state.displayFacebook ? 'block': 'none';
+    const displayTwitter = this.state.displayTwitter ? 'block' : 'none';
 
     return (
       <div className="photo-gallery">
@@ -113,7 +127,7 @@ class PhotoGallery extends Component {
                 <div className="innerSettings__bar" onMouseLeave={this.hideSettingsBar} style={{display: displaySettingsBar}}>
                   <ul>
                     <li onClick={this.showFacebook}><i className="fab fa-facebook-square"></i></li>
-                    <li><i className="fab fa-twitter-square"></i></li>
+                    <li onClick={this.showTwitter}><i className="fab fa-twitter-square"></i></li>
                     <li><i className="fab fa-linkedin"></i></li>
                   </ul>
                 </div>
@@ -121,6 +135,13 @@ class PhotoGallery extends Component {
                 <FacebookProvider appId="135660753806286">
                     <Page href="https://www.facebook.com/transporteslucasrivera/" tabs="timeline" />
                 </FacebookProvider>    
+                </div>
+                <div className="twitterContent" style={{display: displayTwitter}} onMouseLeave={this.hideTwitter}>
+                  <TwitterTimelineEmbed
+                    sourceType="profile"
+                    screenName="EduBuscaNovia"
+                    options={{height: 400}}
+                  />
                 </div>
                 <div className="cover-text--up" onMouseOver={this.moveTextUp} onMouseLeave={this.stopMovement}>
                   <img className="arrowInner arrowUp arrowLeft"  src={this.props.arrowUp} alt="up"/>

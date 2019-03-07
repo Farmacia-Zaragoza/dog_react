@@ -17,7 +17,8 @@ class PhotoGallery extends Component {
     textPosition: 0,
     displaySettingsBar: false,
     displayFacebook: false,
-    displayTwitter: false
+    displayTwitter: false,
+    displayLinkedin: false
   }
 
   componentDidMount() {
@@ -107,6 +108,16 @@ class PhotoGallery extends Component {
       displayTwitter: false
     })
   }
+  showLinkedin = (e) => {
+    this.setState({
+      displayLinkedin: true
+    })
+  }
+  hideLinkedin = (e) => {
+    this.setState({
+      displayLinkedin: false
+    })
+  }
   render() {
     const photos = this.state.photos ? this.state.photos : [];
     const lastPhoto = this.state.row * this.state.photosPerRow;
@@ -117,6 +128,7 @@ class PhotoGallery extends Component {
     const displaySettingsBar = this.state.displaySettingsBar ? 'block' : 'none';
     const displayFacebook = this.state.displayFacebook ? 'block': 'none';
     const displayTwitter = this.state.displayTwitter ? 'block' : 'none';
+    const displayLinkedin = this.state.displayLinkedin ? 'block' : 'none'
 
     return (
       <div className="photo-gallery">
@@ -128,7 +140,7 @@ class PhotoGallery extends Component {
                   <ul>
                     <li onClick={this.showFacebook}><i className="fab fa-facebook-square"></i></li>
                     <li onClick={this.showTwitter}><i className="fab fa-twitter-square"></i></li>
-                    <li><i className="fab fa-linkedin"></i></li>
+                    <li onClick={this.showLinkedin}><i className="fab fa-linkedin"></i></li>
                   </ul>
                 </div>
                 <div className="facebookContent" style={{display: displayFacebook}}>
@@ -142,6 +154,9 @@ class PhotoGallery extends Component {
                     screenName="EduBuscaNovia"
                     options={{height: 400}}
                   />
+                </div>
+                <div className="linkedinContent" style={{display: displayLinkedin}} onMouseLeave={this.hideLinkedin}>
+                  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6509471587585003521" height="369" width="504" frameborder="0" allowfullscreen=""></iframe>
                 </div>
                 <div className="cover-text--up" onMouseOver={this.moveTextUp} onMouseLeave={this.stopMovement}>
                   <img className="arrowInner arrowUp arrowLeft"  src={this.props.arrowUp} alt="up"/>

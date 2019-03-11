@@ -60,7 +60,12 @@ class topPhotoRow extends Component {
   togglePopUp = (n) => {
     console.log(n)
     var popup = document.getElementById("myPopup"+n);
-    popup.classList.toggle("show");
+    popup.classList.remove("hidden-popup");
+  }
+
+  closePopUp = (n) => {
+    var popup = document.getElementById("myPopup"+n);
+    popup.classList.add("hidden-popup");
   }
 
   render() {
@@ -71,13 +76,13 @@ class topPhotoRow extends Component {
       <div className="top-photo-row">
       { !this.state.choosenImgs ? '' : this.state.choosenImgs.map( (photo, i) => {
             return (
-              <div onMouseOver={() => this.togglePopUp(i)} style={{backgroundImage: `url(${frame})`}} className="top-photo-row__img-container popup" key={i}>
+              <div onMouseLeave={() => this.closePopUp(i)} onMouseOver={() => this.togglePopUp(i)} style={{backgroundImage: `url(${frame})`}} className="top-photo-row__img-container popup" key={i}>
                 <a href={this.props.url+this.state.images[i]['common-link']}>
                     <img className="top-photo-row__img-container__image"
                       src={photo}
                       alt="dog">
                     </img>
-                    <span className="popuptext" id={"myPopup"+i}>{this.state.images[i].hover}</span>
+                    <span className="popuptext hidden-popup" id={"myPopup"+i}>{this.state.images[i].hover}</span>
                 </a>
               </div>
             )

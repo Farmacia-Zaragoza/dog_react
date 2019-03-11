@@ -45,8 +45,26 @@
 		grid-template-rows: 250px 50px;
 	}
 	@include for-big-desktop-up {
-		grid-template-columns: 1000px;
+		grid-template-areas:  'edul photo edur'
+													'edul cntrl edur';
+		grid-template-columns: 1fr 1000px 1fr;
 		grid-template-rows: 500px 100px;
+	}
+}
+.edu--left {
+	grid-area: edul;
+	background-color: lightcyan;
+	display: none;
+	@include for-big-desktop-up {
+		display: block;
+	}
+}
+.edu--right {
+	grid-area: edur;
+	background-color: lightcyan;
+	display: none;
+	@include for-big-desktop-up {
+		display: block;
 	}
 }
 
@@ -67,6 +85,7 @@
 	}
 	@include for-big-desktop-up {
 		padding: 2%;
+		grid-area: photo;
 	}
 }
 
@@ -77,6 +96,9 @@
 	}
 	@include for-desktop-up {
 		grid-template-rows: 50px;
+	}
+	@include for-big-desktop-up {
+		grid-area: cntrl;
 	}
 	grid-template-columns: repeat(10, 1fr);
 	align-content: start;

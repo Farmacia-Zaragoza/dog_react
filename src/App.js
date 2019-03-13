@@ -27,7 +27,8 @@ class App extends Component {
           symbols: response.data.Symbols,
           images: response.data.topSlider,
           languages: response.data.languages,
-          footer: response.data.footer
+          footer: response.data.footer,
+          settings: response.data.infoPage
         })
       })
   }
@@ -50,14 +51,28 @@ class App extends Component {
     return (
       <div className="App">
         <div className="settings-block">
-        <div className="settings-block__trigger"
-            onClick={this.toggleSettings}>
-              {this.state.showSettings ? 'Exit' : 'Settings'}
-        </div>
-        <div className="settings-block__content"
-             style={{display: this.state.showSettings ? 'block' : 'none'}}>
-          Text font-size: <input onChange={this.changeTextSize} type="text"/>
-        </div>
+          <div className="settings-block__trigger"
+              onClick={this.toggleSettings}>
+                {this.state.showSettings ? 'Exit' : 'Settings'}
+          </div>
+          <div className="settings-block__content"
+              style={{display: this.state.showSettings ? 'block' : 'none'}}>
+            {/* Text font-size: <input onChange={this.changeTextSize} type="text"/> */}
+            <div className="settings-container">
+              <div className="settings__sider--left"></div>
+              <div className="settings__content">
+                <div className="preview-area">
+                  preview
+                </div>
+                {this.state.settings.map((item, i) => {
+                  return (
+                    <div className={`settings-block--${i}`} key={i}>{item['info-name']}</div>
+                  )
+                })}
+              </div>
+              <div className="settings__sider--right"></div>
+            </div>
+          </div> 
       </div>
         <TopPhotoRow url={this.props.url} data={this.props['data-common']}/>
         <LanguageSlider url={this.props.url} arrowRight={this.state.symbols[5].image} arrowLeft={this.state.symbols[6].image} languages={this.state.languages}/>

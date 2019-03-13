@@ -53,7 +53,7 @@
 }
 .edu--left {
 	grid-area: edul;
-	background-color: lightcyan;
+	background:transparent;
 	display: none;
 	@include for-big-desktop-up {
 		display: block;
@@ -61,7 +61,7 @@
 }
 .edu--right {
 	grid-area: edur;
-	background-color: lightcyan;
+	background:transparent;
 	display: none;
 	@include for-big-desktop-up {
 		display: block;

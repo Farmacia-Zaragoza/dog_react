@@ -95,3 +95,71 @@
 												 'bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu bmu';
 	}
 }
+
+.settings-container {
+	display: grid;
+	grid-template-areas: 'sl sc sc sr';
+	width: 100%;
+  height: 100vh;
+}
+
+.settings__sider--left {
+	grid-area: sl;
+	background-color: dodgerblue;
+}
+
+.settings__content {
+	grid-area: sc;
+	background-color: antiquewhite;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-areas:  'a b c d'
+												'e pa pa f'
+												'g h i j';
+	grid-gap: 50px;
+	padding: 50px;
+	div {
+		background-color: rgb(104, 165, 214);
+	}
+}
+
+.settings__sider--right {
+	grid-area: sr;
+	background-color: dodgerblue;
+}
+
+.preview-area {
+	grid-area: pa;
+}
+
+.settings-block--0 {
+	grid-area: a;
+}
+.settings-block--1 {
+	grid-area: b;
+}
+.settings-block--2 {
+	grid-area: c;
+}
+.settings-block--3 {
+	grid-area: d;
+}
+.settings-block--4 {
+	grid-area: e;
+}
+.settings-block--5 {
+	grid-column: f;
+}
+.settings-block--6 {
+	grid-area: g;
+}
+.settings-block--7 {
+	grid-area: h;
+}
+.settings-block--8 {
+	grid-area: i;
+}
+.settings-block--9 {
+	grid-area: j;
+}

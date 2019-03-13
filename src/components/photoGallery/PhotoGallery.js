@@ -132,7 +132,7 @@ class PhotoGallery extends Component {
 
     return (
       <div className="photo-gallery">
-        <div className="edu--left">edul</div>
+        <div className="edu--left"></div>
         <div className="big-img__container" style={{backgroundImage: `url(${frame})`}}>
             <div className="big-img__cover cover" style={{display: displayCover}} onMouseLeave={this.hideCover}>
               <div className="cover-container">
@@ -181,7 +181,7 @@ class PhotoGallery extends Component {
             <img onMouseOver={this.showCover} className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
         </div>
 
-        <div className="edu--right">edur</div>
+        <div className="edu--right"></div>
         <div className="photo-gallery__controls">
           <div className="photo-gallery__controls__prev" onClick={this.prevPage}> {`<`} </div>
           {!photosToShow? '' : photosToShow.map((photo, index) => {

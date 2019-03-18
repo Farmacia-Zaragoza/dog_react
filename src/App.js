@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       images: [],
       showSettings: false,
-      textSize: 14
+      textSize: 14,
+      preview: 'Preview Area'
     }
  }
 
@@ -43,6 +44,12 @@ class App extends Component {
       textSize: e.target.value
     })
   }
+
+  changePreviewContent = (dataText) => {
+    this.setState({
+      preview: dataText
+    })
+  }
   
   render() {
    if (this.state.images[0] === undefined) {
@@ -62,11 +69,16 @@ class App extends Component {
               <div className="settings__sider--left"></div>
               <div className="settings__content">
                 <div className="preview-area">
-                  preview
+                  {this.state.preview}
                 </div>
                 {this.state.settings.map((item, i) => {
                   return (
-                    <div className={`settings-block--${i}`} key={i}>{item['info-name']}</div>
+                    <div onMouseOver={() => this.changePreviewContent(item['info-data'])} className={`settings-block_inner settings-block--${i}`} key={i}>
+                      <div className="setting-block__image-container">
+                        <img src={`http://dog.vbrqx.com/${item.image}`} alt={item['info-name']} />
+                      </div>
+                      <div className="setting-block__title">{item['info-name']}</div>
+                    </div>
                   )
                 })}
               </div>

@@ -163,3 +163,39 @@
 .settings-block--9 {
 	grid-area: j;
 }
+
+.settings-block_inner {
+	padding: 20px;
+	display: grid;
+	grid-template-rows: 70% 20%;
+	grid-template-columns: 100%;
+	border: 3px solid yellow;
+	border-radius: 10px;
+	&:hover {
+		border: 3px solid orangered;
+	}
+}
+
+.setting-block__image-container {
+	img {
+		max-width: 50%;
+		height: auto;
+		display: block;
+		margin: auto;
+	}
+}
+
+.setting-block__title {
+	text-align: center;
+	font-size: 16px;
+	padding-top: 20px;
+}
+
+.preview-area {
+	padding: 20px;
+	max-width: 665px;
+	background-color: white!important;
+	color: black;
+	border: 3px solid black;
+	border-radius: 10px;
+}

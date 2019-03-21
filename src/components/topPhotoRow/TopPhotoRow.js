@@ -14,13 +14,14 @@ class topPhotoRow extends Component {
     axios.get(this.props.data)
       .then(response => {
         this.setState({
-          images: response.data.topSlider,
-          photoRowMobile: +response.data.photoRow[0].numColums,
-          photoRowTabletSmall: +response.data.photoRow[1].numColums,
-          photoRowTablet: +response.data.photoRow[2].numColums,
-          photoRowDesktop: +response.data.photoRow[3].numColums,
-          photoRowDektopBig: +response.data.photoRow[4].numColums
+          images: response.data.topslider,
+          photoRowMobile: +response.data.photoRow[0].value,
+          photoRowTabletSmall: +response.data.photoRow[1].value,
+          photoRowTablet: +response.data.photoRow[2].value,
+          photoRowDesktop: +response.data.photoRow[3].value,
+          photoRowDektopBig: +response.data.photoRow[4].value
         })
+        console.log(this.state)
         this.getPhotosCount();
       })
       window.addEventListener("resize", this.getPhotosCount);
@@ -30,7 +31,7 @@ class topPhotoRow extends Component {
     let imgs = [];
     for ( let i = 0; i < this.state.photosCount; i++) {
       let rand = Math.floor(Math.random() * this.state.images.length);
-      imgs.push(this.props.url+this.state.images[rand].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366"));
+      imgs.push(this.props.url+this.state.images[rand].img.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366"));
     }
     this.setState({
       choosenImgs: imgs

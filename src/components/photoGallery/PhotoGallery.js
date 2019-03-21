@@ -26,7 +26,7 @@ class PhotoGallery extends Component {
     .then(response => {
       let photos = [];
       for (let i = 0; i<response.data.images.length; i++) {
-        let photo = this.props.url+response.data.images[i].image.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
+        let photo = this.props.url+response.data.images[i].value.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
         photos.push(photo)
       }
       this.setState({

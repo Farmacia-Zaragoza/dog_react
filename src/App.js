@@ -25,8 +25,8 @@ class App extends Component {
     axios.get(this.props['data-common'])
       .then(response => {
         this.setState({
-          symbols: response.data.Symbols,
-          images: response.data.topSlider,
+          symbols: response.data.symbols,
+          images: response.data.topslider,
           languages: response.data.languages,
           footer: response.data.footer,
           settings: response.data.infoPage
@@ -86,10 +86,10 @@ class App extends Component {
             </div>
           </div> 
       </div>
-        <TopPhotoRow url={this.props.url} data={this.props['data-common']}/>
-        <LanguageSlider url={this.props.url} arrowRight={this.state.symbols[5].image} arrowLeft={this.state.symbols[6].image} languages={this.state.languages}/>
-        <PhotoGallery url={this.props.url} textSize={this.state.textSize} data={this.props['data-spec']} arrowDown={this.state.symbols[1].image} arrowUp={this.state.symbols[0].image}/>
-        <BoneMenu url={this.props.url} orangeBone={this.state.symbols[11].image} whiteBone={this.state.symbols[14].image}/>
+        <TopPhotoRow url={this.props.url+'photos/'} data={this.props['data-common']}/>
+        <LanguageSlider url={this.props.url} arrowRight={this.state.symbols[5].img} arrowLeft={this.state.symbols[6].img} languages={this.state.languages}/>
+        <PhotoGallery url={this.props.url+'photos/'} textSize={this.state.textSize} data={this.props['data-spec']} arrowDown={this.state.symbols[1].img} arrowUp={this.state.symbols[0].img}/>
+        <BoneMenu url={this.props.url+'r_img/'} orangeBone={this.state.symbols[11].img} whiteBone={this.state.symbols[14].img}/>
         <BottomPanel url={this.props.url} footer={this.state.footer}/>
         { /*<BottomPhotoRow data={this.props['data-common']}/>*/}
       </div>

@@ -72,12 +72,13 @@ class App extends Component {
                   {this.state.preview}
                 </div>
                 {this.state.settings.map((item, i) => {
+                  console.log(this.state.settings)
                   return (
-                    <div onMouseOver={() => this.changePreviewContent(item['info-data'])} className={`settings-block_inner settings-block--${i}`} key={i}>
+                    <div onMouseOver={() => this.changePreviewContent(item.value)} className={`settings-block_inner settings-block--${i}`} key={i}>
                       <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${item.image}`} alt={item['info-name']} />
+                        <img src={`http://dog.vbrqx.com/r_img/${item.img}`} alt={item.name} />
                       </div>
-                      <div className="setting-block__title">{item['info-name']}</div>
+                      <div className="setting-block__title">{item.name}</div>
                     </div>
                   )
                 })}
@@ -87,7 +88,7 @@ class App extends Component {
           </div> 
       </div>
         <TopPhotoRow url={this.props.url+'photos/'} data={this.props['data-common']}/>
-        <LanguageSlider url={this.props.url} arrowRight={this.state.symbols[5].img} arrowLeft={this.state.symbols[6].img} languages={this.state.languages}/>
+        <LanguageSlider url={this.props.url+'r_img/'} arrowRight={this.state.symbols[5].img} arrowLeft={this.state.symbols[6].img} languages={this.state.languages}/>
         <PhotoGallery url={this.props.url+'photos/'} textSize={this.state.textSize} data={this.props['data-spec']} arrowDown={this.state.symbols[1].img} arrowUp={this.state.symbols[0].img}/>
         <BoneMenu url={this.props.url+'r_img/'} orangeBone={this.state.symbols[11].img} whiteBone={this.state.symbols[14].img}/>
         <BottomPanel url={this.props.url} footer={this.state.footer}/>

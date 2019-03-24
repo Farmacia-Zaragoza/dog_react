@@ -21,7 +21,6 @@ class topPhotoRow extends Component {
           photoRowDesktop: +response.data.photoRow[3].value,
           photoRowDektopBig: +response.data.photoRow[4].value
         })
-        console.log(this.state)
         this.getPhotosCount();
       })
       window.addEventListener("resize", this.getPhotosCount);
@@ -59,7 +58,6 @@ class topPhotoRow extends Component {
   }
 
   togglePopUp = (n) => {
-    console.log(n)
     var popup = document.getElementById("myPopup"+n);
     popup.classList.remove("hidden-popup");
   }
@@ -78,12 +76,12 @@ class topPhotoRow extends Component {
       { !this.state.choosenImgs ? '' : this.state.choosenImgs.map( (photo, i) => {
             return (
               <div onMouseLeave={() => this.closePopUp(i)} onMouseOver={() => this.togglePopUp(i)} style={{backgroundImage: `url(${frame})`}} className="top-photo-row__img-container popup" key={i}>
-                <a href={this.props.url+this.state.images[i]['common-link']}>
+                <a href={this.props.url+this.state.images[i]['clink']}>
                     <img className="top-photo-row__img-container__image"
                       src={photo}
                       alt="dog">
                     </img>
-                    <span className="popuptext hidden-popup" id={"myPopup"+i}>{this.state.images[i].hover}</span>
+                    <span className="popuptext hidden-popup" id={"myPopup"+i}>{this.state.images[i].clink}</span>
                 </a>
               </div>
             )

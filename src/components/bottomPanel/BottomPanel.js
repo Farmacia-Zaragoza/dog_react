@@ -7,7 +7,7 @@ class BottomPanel extends Component {
         left: 50
     }
     componentDidMount(){
-
+        console.log(this.props)
     }
     toggleContent = (e) => {
         this.setState({
@@ -35,7 +35,7 @@ class BottomPanel extends Component {
                      <div style={{left: this.state.left+'px', position: 'absolute'}}>
                         {this.props.footer.map((item, i) => {
                             return (
-                                <div className="footer-item" key={i}>{item.item}</div>
+                                <div className="footer-item" key={i}>{item.name}</div>
                             )
                         })}
                     </div>

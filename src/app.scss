@@ -199,3 +199,21 @@
 	border: 3px solid black;
 	border-radius: 10px;
 }
+
+.textSize-view {
+	background-color: white;
+	h3 {
+		background-color: white;
+	}
+	div {
+		background-color: white;
+		padding-left: 7%;
+	}
+	i {
+		cursor: pointer;
+	}
+	.textSize-view--block {
+		float: left;
+		width: 25%;
+	}
+}

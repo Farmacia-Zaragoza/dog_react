@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 import TopPhotoRow from './components/topPhotoRow/TopPhotoRow';
 import LanguageSlider from './components/languageSlider/LanguageSlider';
@@ -16,12 +17,22 @@ class App extends Component {
     this.state = {
       images: [],
       showSettings: false,
-      textSize: 14,
-      preview: 'Preview Area'
+      textSize:  14,
+      preview: 'default'
     }
- }
+  }
 
   componentDidMount() {
+    console.log('mount')
+    /*console.log(read_cookie('fontSize'))
+    if (typeof(read_cookie('fontSize')) != 'object') {
+      console.log('getting text size from cookies')
+      this.setState({
+        textSize: read_cookie('fontSize')
+      })
+    } else {
+      bake_cookie('fontSize', this.state.textSize);
+    }*/
     axios.get(this.props['data-common'])
       .then(response => {
         this.setState({
@@ -39,19 +50,57 @@ class App extends Component {
       showSettings: !this.state.showSettings
     })
   }
-  changeTextSize = (e) => {
+  /*changeTextSize = (e) => {
     this.setState({
       textSize: e.target.value
     })
-  }
+  }*/
 
   changePreviewContent = (dataText) => {
     this.setState({
       preview: dataText
     })
   }
+  increaseFontSize = (e) => {
+    console.log('plus')
+    this.setState({
+      textSize: +this.state.textSize + 1
+    })
+    console.log(this.state.textSize)
+    /*delete_cookie('fontSize');
+    bake_cookie('fontSize', this.state.textSize);*/
+  }
+
+  descreaseFontSize = (e) => {
+    console.log('minus')
+    this.setState({
+      textSize: +this.state.textSize - 1
+    })
+    console.log(this.state.textSize)
+    /*delete_cookie('fontSize');
+    bake_cookie('fontSize', this.state.textSize);*/
+  }
   
   render() {
+    var previevContent = ((text, element) => {
+      if (element === 'FontSize') {
+        return(
+          <div className="textSize-view">
+            <h3>{text}</h3>
+            <div>
+              <div className="textSize-view--block"><i onClick={this.descreaseFontSize} className="fas fa-minus-square fa-5x"></i></div>
+              <div className="textSize-view--block">Current Font Size: <br/><h1>{this.state.textSize}px</h1></div>
+              <div className="textSize-view--block"><i onClick={this.increaseFontSize} className="fas fa-plus-square fa-5x"></i></div>
+            </div>
+          </div>
+        )
+      } else{
+        return(
+          <p>{text}</p>
+        )
+      }
+    }
+  )
    if (this.state.images[0] === undefined) {
       return ''
     } 
@@ -72,11 +121,10 @@ class App extends Component {
                   {this.state.preview}
                 </div>
                 {this.state.settings.map((item, i) => {
-                  console.log(this.state.settings)
                   return (
-                    <div onMouseOver={() => this.changePreviewContent(item.value)} className={`settings-block_inner settings-block--${i}`} key={i}>
+                    <div onMouseOver={() => this.changePreviewContent(previevContent(item.value, item.name))} className={`settings-block_inner settings-block--${i}`} key={i}>
                       <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/r_img/${item.img}`} alt={item.name} />
+                        <img src={`http://dog.vbrqx.com/r_img/${item.hov}`} alt={item.name} />
                       </div>
                       <div className="setting-block__title">{item.name}</div>
                     </div>

@@ -115,28 +115,25 @@ class App extends Component {
               style={{display: this.state.showSettings ? 'block' : 'none'}}>
             {/* Text font-size: <input onChange={this.changeTextSize} type="text"/> */}
             <div className="settings-container">
-              <div className="settings__sider--left"></div>
               <div className="settings__content">
-                <div className="preview-area">
-                  {this.state.preview}
-                </div>
                 {this.state.settings.map((item, i) => {
                   return (
                     <div onMouseOver={() => this.changePreviewContent(previevContent(item.value, item.name))} className={`settings-block_inner settings-block--${i}`} key={i}>
                       <div className="setting-block__image-container">
                         <img src={`http://dog.vbrqx.com/r_img/${item.hov}`} alt={item.name} />
                       </div>
-                      <div className="setting-block__title">{item.name}</div>
                     </div>
                   )
                 })}
               </div>
-              <div className="settings__sider--right"></div>
+              <div className="preview-area">
+                  {this.state.preview}
+              </div>
             </div>
           </div> 
       </div>
         <TopPhotoRow url={this.props.url+'photos/'} data={this.props['data-common']}/>
-        <LanguageSlider url={this.props.url+'r_img/'} arrowRight={this.state.symbols[5].img} arrowLeft={this.state.symbols[6].img} languages={this.state.languages}/>
+        <LanguageSlider url={this.props.url} arrowRight={this.state.symbols[5].img} arrowLeft={this.state.symbols[6].img} languages={this.state.languages}/>
         <PhotoGallery url={this.props.url+'photos/'} textSize={this.state.textSize} data={this.props['data-spec']} arrowDown={this.state.symbols[1].img} arrowUp={this.state.symbols[0].img}/>
         <BoneMenu url={this.props.url+'r_img/'} orangeBone={this.state.symbols[11].img} whiteBone={this.state.symbols[14].img}/>
         <BottomPanel url={this.props.url} footer={this.state.footer}/>

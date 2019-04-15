@@ -6,9 +6,9 @@ import './index.css'
 const el = document.getElementById('root');
 
 ReactDOM.render(<App 
-                      data-common={el.getAttribute('data-common')}
-                      data-spec={el.getAttribute('data-spec')}
-                      data-lang-common={el.getAttribute('data-lang-common')}
-                      data-lang-spec={el.getAttribute('data-lang-spec')}
-                      url={el.getAttribute('data-common').slice(0,21)}/>
+                      data-common={el.getAttribute('data-comm-any')}
+                      data-spec={el.getAttribute('data-spec-any')}
+                      data-lang-common={el.getAttribute('data-comm-lang')}
+                      data-lang-spec={el.getAttribute('data-spec-lang')}
+                      url={el.getAttribute('data-comm-any').slice(0,21)}/>
 , document.getElementById('root'));

@@ -7,7 +7,6 @@ class BoneMenu extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
     }
 
     showGoldBone = (e) => {

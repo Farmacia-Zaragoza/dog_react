@@ -7,7 +7,6 @@ class BottomPanel extends Component {
         left: 50
     }
     componentDidMount(){
-        console.log(this.props)
     }
     toggleContent = (e) => {
         this.setState({

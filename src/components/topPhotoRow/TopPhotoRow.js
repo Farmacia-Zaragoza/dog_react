@@ -14,12 +14,12 @@ class topPhotoRow extends Component {
     axios.get(this.props.data)
       .then(response => {
         this.setState({
-          images: response.data.topslider,
-          photoRowMobile: +response.data.photoRow[0].value,
-          photoRowTabletSmall: +response.data.photoRow[1].value,
-          photoRowTablet: +response.data.photoRow[2].value,
-          photoRowDesktop: +response.data.photoRow[3].value,
-          photoRowDektopBig: +response.data.photoRow[4].value
+          images: response.data.regions.top.pull02.images.pull03,
+          photoRowMobile: 2,//+response.data.photoRow[0].value,
+          photoRowTabletSmall: 3,//+response.data.photoRow[1].value,
+          photoRowTablet: 4,//+response.data.photoRow[2].value,
+          photoRowDesktop: 6,//+response.data.photoRow[3].value,
+          photoRowDektopBig: 8//+response.data.photoRow[4].value
         })
         this.getPhotosCount();
       })

@@ -26,13 +26,12 @@ class PhotoGallery extends Component {
     .then(response => {
       let photos = [];
       for (let i = 0; i<response.data.images.length; i++) {
-        let photo = this.props.url+response.data.images[i].value.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
+        let photo = this.props.url+response.data.images[i].img.replace("RESOLUTION", "1024x1366").replace("RESOLUTION", "1024x1366");
         photos.push(photo)
       }
       this.setState({
         photos: photos
       })
-      console.log(this.props.arrowUp)
     })
     
   }
@@ -161,8 +160,8 @@ class PhotoGallery extends Component {
                   <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6509471587585003521" height="369" width="504" frameborder="0" allowfullscreen=""></iframe>
                 </div>
                 <div className="cover-text--up" onMouseOver={this.moveTextUp} onMouseLeave={this.stopMovement}>
-                  <img className="arrowInner arrowUp arrowLeft"  src={this.props.url.replace('photos', 'r_img') + this.props.arrowUp} alt="up"/>
-                  <img className="arrowInner arrowUp arrowRight" src={this.props.url.replace('photos', 'r_img') + this.props.arrowUp} alt="up"/>
+                  <img className="arrowInner arrowUp arrowLeft"  src={this.props.url.replace('photos', '') + this.props.arrowUp} alt="up"/>
+                  <img className="arrowInner arrowUp arrowRight" src={this.props.url.replace('photos', '') + this.props.arrowUp} alt="up"/>
                 </div>
                 <div className="cover-text">
                   <div className="inner-text" style={{top: this.state.textPosition+'px', fontSize: this.props.textSize+'px'}}>
@@ -174,8 +173,8 @@ class PhotoGallery extends Component {
                   </div>
                 </div>
                 <div className="cover-text--down" onMouseOver={this.moveTextDown} onMouseLeave={this.stopMovement}>
-                <img className="arrowInner arrowDown arrowLeft"  src={this.props.url.replace('photos', 'r_img')+this.props.arrowUp} alt="down"/>
-                  <img className="arrowInner arrowDown arrowRight" src={this.props.url.replace('photos', 'r_img')+this.props.arrowUp} alt="down"/>
+                <img className="arrowInner arrowDown arrowLeft"  src={this.props.url.replace('photos', '')+this.props.arrowUp} alt="down"/>
+                  <img className="arrowInner arrowDown arrowRight" src={this.props.url.replace('photos', '')+this.props.arrowUp} alt="down"/>
                 </div>
               </div>
             </div>

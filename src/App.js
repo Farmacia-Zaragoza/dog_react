@@ -47,6 +47,10 @@ class App extends Component {
         })
         console.log(this.state.settings)
       })
+     function reloadPage() {
+      window.location.reload()
+     }
+    window.addEventListener("resize", reloadPage);
   }
 
   toggleSettings = (e) => {
@@ -81,8 +85,18 @@ class App extends Component {
     delete_cookie('fontSize');
     bake_cookie('fontSize', this.state.textSize);
   }
+
+  createTable = () => {
+    let table = []
+
+    for (let i = 0; i < 25; i++) {
+      table.push(<div className="square-single"></div>)
+    }
+    return table
+  }
   
   render() {
+    
     var previevContent = ((text, element) => {
       if (element === 'FontSize') {
         return(
@@ -107,79 +121,63 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <div className="settings-block">
+        <div className="settings-block" style={{height: this.state.showSettings ? '100%' : 'auto'}}>
+          <div className="settings-background"></div>
           <div className="settings-block__trigger"
               onClick={this.toggleSettings}>
                 {this.state.showSettings ? 'Exit' : 'Settings'}
           </div>
-          <div className="settings-block__content"
-              style={{display: this.state.showSettings ? 'block' : 'none', backgroundImage: `url(${this.props.url+this.state.background})`}}>
-            {/* Text font-size: <input onChange={this.changeTextSize} type="text"/> */}
-            <div className="settings-container">
-              <div className="settings__content" style={{backgroundImage: `url(${this.props.url+this.state.cloud})`}}>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Environment    : Dev/Live"].value)} className="settings-block_inner settings-block_inner1">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Environment    : Dev/Live"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Engine         : Html/Php/Ruby/Node"].value)} className="settings-block_inner settings-block_inner2">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Engine         : Html/Php/Ruby/Node"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Protocol       : Http/Https"].value)} className="settings-block_inner settings-block_inner3">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Protocol       : Http/Https"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Authentication :"].value)} className="settings-block_inner settings-block_inner4">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Authentication :"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["SEO            : Robot | User"].value)} className="settings-block_inner settings-block_inner5">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["SEO            : Robot | User"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["FontSize Up"].value)} className="settings-block_inner settings-block_inner6">
-                      <div className="setting-block__image-container">
-                        <img onClick={this.increaseFontSize} src={`http://dog.vbrqx.com/${this.state.settings["FontSize Up"].img}`}/>
-                        <img onClick={this.descreaseFontSize} src={`http://dog.vbrqx.com/${this.state.settings["FontSize Down"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Scrolling"].value)} className="settings-block_inner settings-block_inner7">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Scrolling"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Keyboard"].value)} className="settings-block_inner settings-block_inner8">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Keyboard"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Title"].value)} className="settings-block_inner settings-block_inner9">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Title"].img}`}/>
-                      </div>
-                    </div>
-                    <div onClick={() => this.changePreviewContent(this.state.settings["Description"].value)} className="settings-block_inner settings-block_inner10">
-                      <div className="setting-block__image-container">
-                        <img src={`http://dog.vbrqx.com/${this.state.settings["Description"].img}`}/>
-                      </div>
-                    </div>
+          <div className="showhide" style={{display: this.state.showSettings ? 'grid' : 'none'}}> 
+            <div className="settings__content" style={{backgroundImage: `url(${this.props.url+this.state.cloud})`}}>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Environment    : Dev/Live"].value)} className="settings-block_inner settings-block_inner1">                  
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Environment    : Dev/Live"].img}`}/>
               </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Engine         : Html/Php/Ruby/Node"].value)} className="settings-block_inner settings-block_inner2">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Engine         : Html/Php/Ruby/Node"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Protocol       : Http/Https"].value)} className="settings-block_inner settings-block_inner3">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Protocol       : Http/Https"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Authentication :"].value)} className="settings-block_inner settings-block_inner4">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Authentication :"].img}`}/>
+              </div><br></br>
+
+            
+
+              <div onClick={() => this.changePreviewContent(this.state.settings["SEO            : Robot | User"].value)} className="settings-block_inner settings-block_inner5">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["SEO            : Robot | User"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["FontSize Up"].value)} className="settings-block_inner settings-block_inner6">
+                  <img onClick={this.increaseFontSize} src={`http://dog.vbrqx.com/${this.state.settings["FontSize Up"].img}`}/>
+                  <img onClick={this.descreaseFontSize} src={`http://dog.vbrqx.com/${this.state.settings["FontSize Down"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Scrolling"].value)} className="settings-block_inner settings-block_inner7">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Scrolling"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Keyboard"].value)} className="settings-block_inner settings-block_inner8">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Keyboard"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Title"].value)} className="settings-block_inner settings-block_inner9">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Title"].img}`}/>
+              </div>
+              <div onClick={() => this.changePreviewContent(this.state.settings["Description"].value)} className="settings-block_inner settings-block_inner10">
+                  <img src={`http://dog.vbrqx.com/${this.state.settings["Description"].img}`}/>
+              </div>
+            </div>
+
+              {/*settings blocks grid end*/}
               <div id="notification-bone">
                 
               </div>
               <div className="preview-area">
+                <div className="preview-inner">
                   {this.state.preview}
+                </div>
               </div>
               <div className="big-edu">
                 <img src="http://dog.dbrqx.com/r_img/dogs/edu_version_03_real_dog.svg"/>
               </div>
-            </div>
-          </div> 
+              </div>
       </div>
         <TopPhotoRow url={this.props.url+'photos/'} data={this.props['data-common']}/>
         <LanguageSlider url={this.props.url} arrowRight={this.state.symbols.Flag_Arrow_Left.img} arrowLeft={this.state.symbols.Flag_Arrow_Right.img} languages={this.state.languages}/>
@@ -187,6 +185,9 @@ class App extends Component {
         <BoneMenu url={this.props.url} orangeBone={this.state.symbols.Bones_Orange.img} whiteBone={this.state.symbols.Bones_White.img}/>
         <BottomPanel url={this.props.url} footer={this.state.footer}/>
         { /*<BottomPhotoRow data={this.props['data-common']}/>*/}
+        <div className="squaredogs">
+          {this.createTable()}
+        </div>
       </div>
     );
   }

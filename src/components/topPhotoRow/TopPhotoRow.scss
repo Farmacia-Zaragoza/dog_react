@@ -136,3 +136,16 @@
 .hidden-popup {
 	display: none;
 }
+
+.photo-cover {
+	width: 80%;
+    height: 100%;
+    position: absolute;
+    background-color: grey;
+    opacity: .5;
+    left: 10%;
+	display: block;
+	:hover {
+		opacity: 1;
+	}
+}

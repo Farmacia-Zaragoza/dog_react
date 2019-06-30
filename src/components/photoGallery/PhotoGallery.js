@@ -18,10 +18,30 @@ class PhotoGallery extends Component {
     displaySettingsBar: false,
     displayFacebook: false,
     displayTwitter: false,
-    displayLinkedin: false
+    displayLinkedin: false,
+    rand: 1
   }
 
   componentDidMount() {
+    var a = 8;
+    if (window.innerWidth < 600) {
+      a = 3;
+    }
+    if (window.innerWidth > 600) {
+      a = 4;
+    }
+    if (window.innerWidth > 899) {
+      a = 5;
+    }
+    if (window.innerWidth > 1199) {
+      a = 6;
+    }
+    if (window.innerWidth > 1799) {
+      a = 8;
+    }
+    this.setState({
+      photosPerRow: a
+    })
     axios.get(this.props.data)
     .then(response => {
       let photos = [];
@@ -33,7 +53,11 @@ class PhotoGallery extends Component {
         photos: photos
       })
     })
-    
+    let rand = Math.random();
+    console.log(rand)
+    this.setState({
+      rand: rand
+    })
   }
 
   prevPage = (e) => {
@@ -129,10 +153,15 @@ class PhotoGallery extends Component {
     const displayFacebook = this.state.displayFacebook ? 'block': 'none';
     const displayTwitter = this.state.displayTwitter ? 'block' : 'none';
     const displayLinkedin = this.state.displayLinkedin ? 'block' : 'none'
-
+    const lettersContentLeft = this.state.rand > 0.5 ? 'block' : 'none';
+    const lettersContentRight = this.state.rand > 0.5 ? 'none' : 'block';
     return (
       <div className="photo-gallery">
-        <div className="edu--left"></div>
+        <div className="edu--left">
+          <img style={{display: lettersContentLeft}} className="edu-letter" src={this.props.url.replace('photos', '')+`r_img/letters/edu_letter_e_2017.svg`}/><br/>
+          <img style={{display: lettersContentLeft}} className="edu-letter" src={this.props.url.replace('photos', '')+`r_img/letters/edu_letter_d_2017.svg`}/><br/>
+          <img style={{display: lettersContentLeft}} className="edu-letter" src={this.props.url.replace('photos', '')+`r_img/letters/edu_letter_u_2017.svg`}/>
+        </div>
         <div className="big-img__container" style={{backgroundImage: `url(${frame})`}}>
             <div className="big-img__cover cover" style={{display: displayCover}} onMouseLeave={this.hideCover}>
               <div className="cover-container">
@@ -181,7 +210,11 @@ class PhotoGallery extends Component {
             <img onMouseOver={this.showCover} className="photo-gallery__big-img" src={this.state.bigPhoto || bigPhotoPre} alt="dog"/>
         </div>
 
-        <div className="edu--right"></div>
+        <div className="edu--right">
+        <img style={{display: lettersContentRight}} className="edu-letter" src={this.props.url.replace('photos', '')+`r_img/letters/edu_letter_e_2017.svg`}/><br/>
+          <img style={{display: lettersContentRight}} className="edu-letter" src={this.props.url.replace('photos', '')+`r_img/letters/edu_letter_d_2017.svg`}/><br/>
+          <img style={{display: lettersContentRight}} className="edu-letter" src={this.props.url.replace('photos', '')+`r_img/letters/edu_letter_u_2017.svg`}/>
+        </div>
         <div className="photo-gallery__controls">
           <div className="photo-gallery__controls__prev" onClick={this.prevPage}> {`<`} </div>
           {!photosToShow? '' : photosToShow.map((photo, index) => {

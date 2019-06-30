@@ -41,8 +41,10 @@
 		grid-template-rows: 380px 50px;
 	}
 	@include for-desktop-up {
-		grid-template-columns: 700px;
+		grid-template-columns: 1fr 700px 1fr;
 		grid-template-rows: 250px 50px;
+		grid-template-areas:  'edul photo edur'
+													'edul cntrl edur';
 	}
 	@include for-big-desktop-up {
 		grid-template-areas:  'edul photo edur'
@@ -55,6 +57,10 @@
 	grid-area: edul;
 	background:transparent;
 	display: none;
+	padding-left: 100px;
+	@include for-desktop-up {
+		display: block;
+	}
 	@include for-big-desktop-up {
 		display: block;
 	}
@@ -63,6 +69,10 @@
 	grid-area: edur;
 	background:transparent;
 	display: none;
+	padding-left: 100px;
+	@include for-desktop-up {
+		display: block;
+	}
 	@include for-big-desktop-up {
 		display: block;
 	}
@@ -91,16 +101,34 @@
 
 .photo-gallery__controls {
 	display: grid;
+	grid-area: cntrl;
+	@include for-phone-only {
+		bottom: 15px;
+		left: 5px;
+		grid-template-columns: repeat(5, 1fr);
+	}
+	@include for-tablet-portrait-up {
+		bottom: 25px;
+		left: 25px;
+		grid-template-columns: repeat(6, 1fr);
+	}
 	@include for-tablet-landscape-up {
+		bottom: 75px;
+		left: 75px;
 		grid-template-rows: 30px;
+		grid-template-columns: repeat(7, 1fr);
 	}
 	@include for-desktop-up {
+		bottom: 10px;
+		left: 50px;
 		grid-template-rows: 50px;
+		grid-template-columns: repeat(8, 1fr);
 	}
 	@include for-big-desktop-up {
-		grid-area: cntrl;
-	}
-	grid-template-columns: repeat(10, 1fr);
+		bottom: 100px;
+		left: 150px;
+		grid-template-columns: repeat(10, 1fr);
+	}	
 	align-content: start;
 	justify-content: start;
 	text-align: center;
@@ -333,4 +361,17 @@
 	background: transparent;
 	z-index: 1000;
 	overflow-y: auto;
+}
+
+.edu-letter {
+	display: none;
+	height: 200px;
+	@include for-desktop-up {
+		height: 80px;
+		display: block;
+	}
+	@include for-big-desktop-up {
+		height: 200px;
+		display: block;
+	}
 }
